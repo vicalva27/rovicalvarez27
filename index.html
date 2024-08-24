@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Typing Effect</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="background">
+		<div class="typing-container">
+			<span id="typing-text"></span>
+		</div>
+	</div>
+
+	<script>
+		const text = "John Rovic G. Alvarez";
+		const typingText = document.getElementById("typing-text");
+		let i = 0;
+
+		function type() {
+			if (i < text.length) {
+				typingText.textContent += text[i];
+				i++;
+				setTimeout(type, 50); // adjust the speed here
+			} else {
+				setTimeout(function() {
+					typingText.textContent = "";
+					i = 0;
+					type();
+				}, 1000); // adjust the delay between loops here
+			}
+		}
+
+		type();
+	</script>
+</body>
+</html>
